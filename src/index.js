@@ -12,7 +12,6 @@ function updateCityAndTemp(response) {
   let city = response.data.city;
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = city;
-
   let temperature = Math.round(response.data.temperature.current);
   let temperaturePlaceholder = document.querySelector(
     "#current-temperature-value"
