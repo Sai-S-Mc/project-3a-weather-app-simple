@@ -8,7 +8,7 @@ a {
 }
 
 .weather-app {
-  background: rgb(223, 222, 222);
+  background: #f0ecfc;
   max-width: 600px;
   margin: 60px auto;
   padding: 30px;
@@ -24,11 +24,17 @@ header {
 .search-input {
   background-color: #f9f7fe;
   border: none;
-  color: rgba(39, 33, 66, 0.4);
+  color:#885DF1;
   font-size: 16px;
   padding: 20px;
   width: 83%;
   border-radius: 6px;
+}
+.search-input::placeholder {
+  color:#bea4ff;
+}
+.search-input:focus {
+outline-color:#885DF1;
 }
 
 .search-button {
