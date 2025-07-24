@@ -13,6 +13,7 @@ body {
 .weather-app {
   background: #f0ecfc;
   max-width: 600px;
+  width: 80%;
   margin: 160px auto;
   padding: 30px;
   border-radius: var(--border-radius);
@@ -34,9 +35,9 @@ header {
   background: #f9f7fe;
   border: none;
   color: #885df1;
+  width: 83%;
   font-size: 16px;
   padding: 20px;
-  width: 83%;
   border-radius: calc(var(--border-radius) - 5px);
 }
 .search-input:-webkit-autofill,
@@ -75,8 +76,9 @@ main {
   padding: 30px 10px;
 }
 
-.current-temperature {
+.float-right {
   font-size: 48px;
+  line-height: 1.3;
 }
 
 .current-weather {
@@ -129,4 +131,31 @@ footer a.highlighted-text {
 
 footer a:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 665px) {
+  .search-input,
+  .search-button {
+    display: block;
+    margin: 0 auto;
+    padding: 15px ;
+  }
+
+  .search-input {
+    width: 80%;
+    text-align: center;
+  }
+
+  .search-button {
+    width: 20%;
+    min-width: 100px;
+    margin-top: 10px;
+  }
+
+  .current-weather{
+    flex-direction: column;
+    text-align: center;
+  }
+
+ 
 }
