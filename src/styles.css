@@ -116,6 +116,12 @@ main {
   top: -35px;
 }
 
+#current-date{
+  color: var(--muted-text);
+  text-align: center;
+  margin-bottom: 25px;
+}
+
 footer {
   border-top: var(--border);
   text-align: center;

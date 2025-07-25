@@ -21,6 +21,22 @@ function search(event) {
   axios.get(apiUrl).then(updateCityAndTemp);
 }
 
+function calculate12HourFormat(hour, mins) {
+  let amOrPm;
+  if (hour > 11) {
+    if (hour === 24) {
+      amOrPm = "AM";
+    } else {
+      amOrPm = "PM";
+    }
+  }
+  if (hour > 12) {
+    hour = hour - 12;
+  }
+
+  return `${hour}:${mins} ${amOrPm}`;
+}
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -45,7 +61,9 @@ function formatDate(date) {
   ];
 
   let formattedDay = days[day];
-  return `${formattedDay} <span class=highlighted-text>${hours}:${minutes}</span>`;
+  let time24HourFormat = `${hours}:${minutes}`;
+  let time12HourFormat = calculate12HourFormat(hours, minutes);
+  return `${formattedDay} <span class=highlighted-text>${time24HourFormat}</span> (${time12HourFormat})`;
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -53,4 +71,4 @@ searchForm.addEventListener("submit", search);
 
 let currentDate = new Date();
 let currentDateELement = document.querySelector("#current-date");
-currentDateELement.innerHTML = formatDate(currentDate);
+currentDateELement.innerHTML = `Your time : ${formatDate(currentDate)}`;
