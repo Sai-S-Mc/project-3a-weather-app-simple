@@ -1,11 +1,13 @@
 function updateCityAndTemp(response) {
+  console.log(response);
   let city = response.data.city;
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = city;
+  let country = response.data.country;
+  let countryElement = document.querySelector("#current-country");
+  countryElement.innerHTML = country;
   let temperature = Math.round(response.data.temperature.current);
-  let temperatureElement = document.querySelector(
-    "#current-temperature-value"
-  );
+  let temperatureElement = document.querySelector("#current-temperature-value");
   temperatureElement.innerHTML = temperature;
 }
 
