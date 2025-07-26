@@ -22,19 +22,24 @@ function search(event) {
 }
 
 function calculate12HourFormat(hour, mins) {
-  let amOrPm;
-  if (hour > 11) {
+  if (hour >= 12) {
+    let amOrPm;
+
     if (hour === 24) {
       amOrPm = "AM";
     } else {
       amOrPm = "PM";
     }
-  }
-  if (hour > 12) {
-    hour = hour - 12;
-  }
 
-  return `${hour}:${mins} ${amOrPm}`;
+    if (hour > 12) {
+      hour = hour - 12;
+    }
+
+    return `(${hour}:${mins} ${amOrPm})`;
+  }
+  else{
+    return ""
+  }
 }
 
 function formatDate(date) {
@@ -63,7 +68,7 @@ function formatDate(date) {
   let formattedDay = days[day];
   let time24HourFormat = `${hours}:${minutes}`;
   let time12HourFormat = calculate12HourFormat(hours, minutes);
-  return `${formattedDay} <span class=highlighted-text>${time24HourFormat}</span> (${time12HourFormat})`;
+  return `${formattedDay} <span class=highlighted-text>${time24HourFormat}</span> ${time12HourFormat}`;
 }
 
 let searchForm = document.querySelector("#search-form");
