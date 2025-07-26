@@ -77,3 +77,12 @@ searchForm.addEventListener("submit", search);
 let currentDate = new Date();
 let currentDateELement = document.querySelector("#current-date");
 currentDateELement.innerHTML = `Your time : ${formatDate(currentDate)}`;
+
+let initialLoad = true
+if(initialLoad === true){
+   let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
+   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Madrid&key=${apiKey}&units=metric`;
+   axios.get(apiUrl).then(updateCityAndTemp);
+
+   initialLoad = false
+}
