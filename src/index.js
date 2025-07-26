@@ -1,30 +1,39 @@
 function handleApiResponse(response) {
   console.log(response.data);
+  let apiResponse = response.data
 
-  if (response.data.message) {
+  if (apiResponse.message) {
     let mainSection = document.querySelector("main");
     mainSection.innerHTML = `<h4>Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</h4>`;
     setTimeout(() => {
       location.reload();
-    }, 3500);
+    }, 3000);
     return;
   }
 
-  let city = response.data.city;
+  let city = apiResponse.city;
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = city;
 
-  let country = response.data.country;
+  let country = apiResponse.country;
   let countryElement = document.querySelector("#current-country");
   countryElement.innerHTML = country;
 
-  let weatherDescription = response.data.condition.description;
+  let weatherDescription = apiResponse.condition.description;
   weatherDescription =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
   let descriptionElement = document.querySelector("#weather-description");
   descriptionElement.innerHTML = `, ${weatherDescription}`;
 
-  let temperature = Math.round(response.data.temperature.current);
+  let humidity = Math.round(apiResponse.temperature.humidity);
+  let humidityElement = document.querySelector("#humidity")
+  humidityElement.innerHTML = `${humidity}%`
+
+  let windSpeed = Math.round((apiResponse.wind.speed) * 3.6);
+  let windSpeedElement = document.querySelector("#wind-speed")
+  windSpeedElement.innerHTML = `${windSpeed} km/h`
+
+  let temperature = Math.round(apiResponse.temperature.current);
   let temperatureElement = document.querySelector("#current-temperature-value");
   temperatureElement.innerHTML = temperature;
 }
