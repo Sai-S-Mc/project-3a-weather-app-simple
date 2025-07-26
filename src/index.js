@@ -1,4 +1,4 @@
-function updateCityAndTemp(response) {
+function handleApiResponse(response) {
   console.log(response.data);
 
   if (response.data.message) {
@@ -13,9 +13,17 @@ function updateCityAndTemp(response) {
   let city = response.data.city;
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = city;
+
   let country = response.data.country;
   let countryElement = document.querySelector("#current-country");
   countryElement.innerHTML = country;
+
+  let weatherDescription = response.data.condition.description;
+  weatherDescription =
+    weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
+  let descriptionElement = document.querySelector("#weather-description");
+  descriptionElement.innerHTML = `, ${weatherDescription}`;
+
   let temperature = Math.round(response.data.temperature.current);
   let temperatureElement = document.querySelector("#current-temperature-value");
   temperatureElement.innerHTML = temperature;
@@ -34,7 +42,7 @@ function search(event) {
 
   let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${userInput}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(updateCityAndTemp);
+  axios.get(apiUrl).then(handleApiResponse);
 }
 
 function calculate12HourFormat(hour, mins) {
@@ -83,7 +91,7 @@ function formatDate(date) {
 
 let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Madrid&key=${apiKey}&units=metric`;
-axios.get(apiUrl).then(updateCityAndTemp);
+axios.get(apiUrl).then(handleApiResponse);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
