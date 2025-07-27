@@ -3,11 +3,14 @@ function handleApiResponse(response) {
   let apiResponse = response.data;
 
   if (apiResponse.message) {
+    let formElement = document.querySelector("form");
+    formElement.classList.add("hidden");
     let mainSection = document.querySelector("main");
-    mainSection.innerHTML = `<h4>Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</h4>`;
-    setTimeout(() => {
+    mainSection.innerHTML = `<h4>Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</h4><button class ="error-button">Continue</button>`;
+    let errorButton = document.querySelector("button");
+    errorButton.addEventListener("click", () => {
       location.reload();
-    }, 3000);
+    });
     return;
   }
 
