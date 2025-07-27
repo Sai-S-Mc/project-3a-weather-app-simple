@@ -33,9 +33,10 @@ function handleApiResponse(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   windSpeedElement.innerHTML = `${windSpeed} km/h`;
 
-  let weatherIcon = apiResponse.condition.icon_url;
+  let weatherIcon = apiResponse.condition.icon;
+  let weatherIconUrl = apiResponse.condition.icon_url;
   let weatherIconElement = document.querySelector("#current-temperature-icon");
-  weatherIconElement.innerHTML = `<img src=${weatherIcon} alt="" />`;
+  weatherIconElement.innerHTML = `<img src=${weatherIconUrl} alt=${weatherIcon} title = ${weatherIcon} />`;
 
   let temperature = Math.round(apiResponse.temperature.current);
   let temperatureElement = document.querySelector("#current-temperature-value");
