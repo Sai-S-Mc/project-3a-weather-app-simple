@@ -12,7 +12,7 @@ function handleApiResponse(response) {
   }
 
   let city = apiResponse.city;
-  let cityElement = document.querySelector("h1");
+  let cityElement = document.querySelector("h2");
   cityElement.innerHTML = city;
 
   let country = apiResponse.country;
@@ -33,7 +33,7 @@ function handleApiResponse(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   windSpeedElement.innerHTML = `${windSpeed} km/h`;
 
-  let weatherIcon = apiResponse.condition.icon_url
+  let weatherIcon = apiResponse.condition.icon_url;
   let weatherIconElement = document.querySelector("#current-temperature-icon");
   weatherIconElement.innerHTML = `<img src=${weatherIcon} alt="" />`;
 

@@ -27,6 +27,18 @@ header {
   padding-bottom: 30px;
 }
 
+.highlighted-text {
+  color: #885df1;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+h1{
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0;
+}
+
 .search-button,
 .search-input {
   border: none;
@@ -74,10 +86,11 @@ main {
   padding: 30px 10px;
 }
 
-.highlighted-text {
-  color: #885df1;
-  font-weight: 500;
-  opacity: 0.7;
+h2,
+h4,
+.current-temperature-value,
+.current-temperature-unit {
+  color: var(--primary-text);
 }
 
 #current-date,
@@ -89,13 +102,6 @@ h4 {
   margin-bottom: 25px;
 }
 
-h1,
-h4,
-.current-temperature-value,
-.current-temperature-unit {
-  color: var(--primary-text);
-}
-
 h4 {
   opacity: 0.9;
 }
@@ -105,7 +111,7 @@ h4 {
   justify-content: space-between;
 }
 
-h1 {
+h2 {
   font-size: 38px;
   margin: 0;
 }
