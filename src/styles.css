@@ -130,16 +130,8 @@ h1 {
   padding-bottom: 15px;
 }
 
-.current-temperature-icon,
-.current-temperature-unit {
-  position: relative;
-}
-
-.current-temperature-icon {
-  top: -3px;
-  font-size: 40px;
-  margin-right: 10px;
-  color: black;
+.current-temperature-icon img {
+  width: 75px;
 }
 
 .current-temperature-value {
@@ -148,6 +140,7 @@ h1 {
 }
 
 .current-temperature-unit {
+  position: relative;
   font-size: 22px;
   top: -20px;
 }
@@ -199,14 +192,8 @@ footer a:hover {
   }
 
   .float-right {
-    display: block;
+   justify-content: center;
     margin-top: 20px;
-  }
-
-  .current-temperature-icon {
-    top: -10px;
-    margin-right: 5px;
-    font-size: 35px;
   }
 
   .current-temperature-value {
@@ -215,6 +202,5 @@ footer a:hover {
 
   .current-temperature-unit {
     font-size: 18px;
-    top: -36px;
   }
 }
