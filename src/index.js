@@ -1,6 +1,6 @@
 function handleApiResponse(response) {
   console.log(response.data);
-  let apiResponse = response.data
+  let apiResponse = response.data;
 
   if (apiResponse.message) {
     let mainSection = document.querySelector("main");
@@ -12,7 +12,7 @@ function handleApiResponse(response) {
   }
 
   let city = apiResponse.city;
-  let cityElement = document.querySelector("#current-city");
+  let cityElement = document.querySelector("h1");
   cityElement.innerHTML = city;
 
   let country = apiResponse.country;
@@ -23,15 +23,15 @@ function handleApiResponse(response) {
   weatherDescription =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
   let descriptionElement = document.querySelector("#weather-description");
-  descriptionElement.innerHTML = `, ${weatherDescription}`;
+  descriptionElement.innerHTML = `${weatherDescription}`;
 
   let humidity = Math.round(apiResponse.temperature.humidity);
-  let humidityElement = document.querySelector("#humidity")
-  humidityElement.innerHTML = `${humidity}%`
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${humidity}%`;
 
-  let windSpeed = Math.round((apiResponse.wind.speed) * 3.6);
-  let windSpeedElement = document.querySelector("#wind-speed")
-  windSpeedElement.innerHTML = `${windSpeed} km/h`
+  let windSpeed = Math.round(apiResponse.wind.speed * 3.6);
+  let windSpeedElement = document.querySelector("#wind-speed");
+  windSpeedElement.innerHTML = `${windSpeed} km/h`;
 
   let temperature = Math.round(apiResponse.temperature.current);
   let temperatureElement = document.querySelector("#current-temperature-value");
@@ -107,4 +107,4 @@ searchForm.addEventListener("submit", search);
 
 let currentDate = new Date();
 let currentDateELement = document.querySelector("#current-date");
-currentDateELement.innerHTML = `Your time : ${formatDate(currentDate)}`;
+currentDateELement.innerHTML = `Your Local Time : ${formatDate(currentDate)}`;
