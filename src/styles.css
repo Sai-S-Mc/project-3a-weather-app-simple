@@ -51,7 +51,10 @@ header {
 
 .search-input::placeholder {
   color: #bea4ff;
+  opacity: 0.6;
+  font-size: 15px;
 }
+
 .search-input:focus {
   outline-color: #885df1;
 }
