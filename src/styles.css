@@ -48,7 +48,7 @@ form.hidden {
 
 .search-button,
 .search-input,
-.error-button {
+#error-button {
   border: none;
   font-size: 16px;
   padding: 20px;
@@ -80,19 +80,19 @@ form.hidden {
 }
 
 .search-button,
-.error-button {
+#error-button {
   background-color: #885df1;
   color: white;
   transition: var(--transition);
 }
 
 .search-button:hover,
-.error-button:hover {
+#error-button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.error-button {
+#error-button {
   padding: 10px 20px;
   display: block;
   margin: 0 auto 20px;
