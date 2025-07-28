@@ -3,11 +3,11 @@ function handleApiResponse(response) {
   let apiResponse = response.data;
 
   if (apiResponse.message) {
-    let formElement = document.querySelector("form");
+    let formElement = document.querySelector("#search-form");
     formElement.classList.add("hidden");
-    let mainSection = document.querySelector("main");
-    mainSection.innerHTML = `<h4>Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</h4><button class ="error-button">Continue</button>`;
-    let errorButton = document.querySelector("button");
+    let mainSection = document.querySelector("#main-section");
+    mainSection.innerHTML = `<h4>Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</h4><button id ="error-button">Continue</button>`;
+    let errorButton = document.querySelector("#error-button");
     errorButton.addEventListener("click", () => {
       location.reload();
     });
@@ -15,7 +15,7 @@ function handleApiResponse(response) {
   }
 
   let city = apiResponse.city;
-  let cityElement = document.querySelector("h2");
+  let cityElement = document.querySelector("#city");
   cityElement.innerHTML = city;
 
   let country = apiResponse.country;
