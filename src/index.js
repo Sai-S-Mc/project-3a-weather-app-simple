@@ -1,5 +1,4 @@
 function handleApiResponse(response) {
-  console.log(response.data);
   let apiResponse = response.data;
 
   if (apiResponse.message) {
@@ -108,7 +107,18 @@ function formatDate(date) {
 
 let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Madrid&key=${apiKey}&units=metric`;
-axios.get(apiUrl).then(handleApiResponse);
+axios
+  .get(apiUrl)
+  .then(handleApiResponse)
+  .catch((error) => {
+    document.querySelector("#search-form").classList.add("hidden");
+    document.querySelector(
+      "#current-weather"
+    ).innerHTML = `<h4>Oops! Something went wrong.<br/> We apologize for the inconvenience.<br/> Please try again later!</h4><button id ="error-button">Continue</button>`;
+    document.querySelector("#error-button").addEventListener("click", () => {
+      location.reload();
+    });
+  });
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
