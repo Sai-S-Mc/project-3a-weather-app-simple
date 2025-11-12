@@ -5,7 +5,7 @@ function handleApiResponse(response) {
     let formElement = document.querySelector("#search-form");
     formElement.classList.add("hidden");
     let mainSection = document.querySelector("#main-section");
-    mainSection.innerHTML = `<h4>Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</h4><button id ="error-button">Continue</button>`;
+    mainSection.innerHTML = `<p class="error-message">Are you sure that's a real place? Even the weather is confused🌀<br/>Please check the spelling and try again.</p><button id ="error-button" title="Click the continue button to refresh the page" >Continue</button>`;
     let errorButton = document.querySelector("#error-button");
     errorButton.addEventListener("click", () => {
       location.reload();

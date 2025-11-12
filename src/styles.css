@@ -103,14 +103,14 @@ main {
 }
 
 h2,
-h4,
+p.error-message,
 .current-temperature-value,
 .current-temperature-unit {
   color: var(--primary-text);
 }
 
 #current-date,
-h4 {
+p.error-message {
   text-align: center;
 }
 
@@ -118,7 +118,9 @@ h4 {
   margin-bottom: 25px;
 }
 
-h4 {
+p.error-message {
+  font-size: 16px;
+  font-weight: 700;
   opacity: 0.9;
 }
 
